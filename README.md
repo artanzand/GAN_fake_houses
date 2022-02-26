@@ -7,8 +7,10 @@ This project aims to implement a Generative Adversarial Networks (GANs) model to
 
 GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project [Pytorch](https://pytorch.org/) deep learning framework that we will use to train the models and the calculations will be performed using GPU. 
 
+The  [Kaggle dataset - House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is used to train this model, in addtion webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
 
-The following images show the the model outputs synthetic images of houses through epochs:
+
+In the following visualizations the real input images are presented and below an animation with the synthetic images produced by the GAN model:
 
 ## Real images
 
@@ -43,6 +45,7 @@ source: [Manning](https://freecontent.manning.com/practical-applications-of-gans
 This is an example of GAN model to produce images of handwritten numbers
 
 ![dcgan](https://user-images.githubusercontent.com/37048819/155862019-3cd98231-aff4-4900-867d-db70886b1195.gif)
+source: [Tensorflow](https://www.tensorflow.org/tutorials/generative/dcgan)
 
 
 
@@ -138,3 +141,4 @@ project environment needs to be updated too
 - [2] pytorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
 - [3] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
 - [4] Jason Brownlee article about GANs - [article](https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/)
+- [5] Andres Pitta article - [article](https://ubc-mds.github.io/2020-07-10-realistic-neighbourhoods/)
