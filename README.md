@@ -31,7 +31,7 @@ We need over 10_000 images.
 </p>
 
 <p align="center">
-  <img src="https://github.com/artanzand/GAN/blob/main/examples/GAN.gif" />
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
 </p>
 
 
