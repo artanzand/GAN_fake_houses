@@ -9,7 +9,10 @@ We want to create fake images for properties in a Real Estate company that do no
 - garden...
 We need over 10_000 images.
 
-- training image
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
+</p>
+
 - animation
 
 # Usage
