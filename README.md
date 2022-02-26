@@ -85,6 +85,7 @@ probability and loss results images
 - hyperparameters
 
 # References
-[1] pytorch GAN Tutorial  - [tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
-[2] pytorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
-[3] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
+- [1] pytorch GAN Tutorial  - [tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
+- [2] pytorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
+- [3] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
+- [4] Jason Brownlee article about GANs - [article](https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/)
