@@ -50,7 +50,9 @@ the two functions for removing margins and resizing
 link to kaggle dataset for the final data
 
 
-
+# Dependencies
+python packages
+project environment needs to be updated too
 
 
 ## Results
