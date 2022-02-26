@@ -1,18 +1,22 @@
 # Generative Adversarial Network
 GAN implementation for Realtor.com Images by Artan Zandian & Ramiro Mejia
 
+## Objective
 
 This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images.
 
-GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model.
+GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project [Pytorch](https://pytorch.org/) deep learning framework that we will use to train the models and the calculations will be performed using GPU. 
 
-# Real images
+
+The following images show the the model outputs synthetic images of houses through epochs:
+
+## Real images
 
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
 </p>
 
-# outputs through epochs
+## Outputs through epochs
 
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
@@ -36,6 +40,9 @@ This is an example of a structure of a GAN:
 ![gans](https://user-images.githubusercontent.com/37048819/155857629-17fdc777-5056-4f97-864c-d7c9dad5fce6.png)
 source: [Manning](https://freecontent.manning.com/practical-applications-of-gans-part-1/)
 
+This is an example of GAN model to produce images of handwritten numbers
+
+![dcgan](https://user-images.githubusercontent.com/37048819/155862019-3cd98231-aff4-4900-867d-db70886b1195.gif)
 
 
 
@@ -120,7 +127,7 @@ project environment needs to be updated too
 
 
 ## Lessons Learned
-- GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is many not appropiate images in the public houses image datasets
+- GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in the public datasets
 - 
 - Outdoor images
 - Weight decay
