@@ -1,5 +1,5 @@
 # Generative Adversarial Network
-GAN implementation for Realtor.com Images by Artan Zandian & Ramiro Mejia
+GAN implementation for House-Thumbnail Images by Artan Zandian & Ramiro Mejia
 
 ## Objective
 
