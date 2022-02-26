@@ -30,9 +30,20 @@ We need over 10_000 images.
   <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
 </p>
 
-- animation
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/GAN.gif" />
+</p>
+
 
 # Usage
+## Cloning the Repo
+Clone this Github repository and install the dependencies by running the following commands at the command line/terminal from the root directory of the project:
+
+```
+conda env create --file environment.yaml 
+conda activate GAN
+```
+
 ## Webscraping
 
 ```
@@ -93,7 +104,15 @@ project environment needs to be updated too
 
 
 ## Results
-probability and loss results images
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/good_prob.png" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/good_prob.png" />
+</p>
+
+
 
 ## Lessons Learned
 - data size
