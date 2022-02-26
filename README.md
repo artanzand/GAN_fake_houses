@@ -33,6 +33,14 @@ We need over 10_000 images.
 - animation
 
 # Usage
+## Cloning the Repo
+Clone this Github repository and install the dependencies by running the following commands at the command line/terminal from the root directory of the project:
+
+```
+conda env create --file environment.yaml 
+conda activate GAN
+```
+
 ## Webscraping
 
 ```
