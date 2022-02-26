@@ -1,4 +1,4 @@
-# GAN
+# Generative Adversarial Network
 GAN implementation for Realtor.com Images
 
 
