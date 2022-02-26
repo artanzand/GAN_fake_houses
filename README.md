@@ -105,7 +105,7 @@ project environment needs to be updated too
 
 ## Results
 <p align="center">
-  <img src="https://github.com/artanzand/GAN/blob/main/examples/good_prob.png" />
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/prob_loss.JPG" />
 </p>
 
 <p align="center">
