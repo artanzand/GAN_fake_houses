@@ -73,7 +73,7 @@ To download images from Google using this function the user should define the fo
 
 1. search : The title of your google search 
 2. path: Local path to the chromedriver.exe file required to use the Selenium library
-3. num_images: The number of images to be downloadede
+3. num_images: The number of images to be downloaded
 
 ## Training the model
 The function to train. This doesn't take any arguments.
@@ -91,7 +91,7 @@ num_images
 
 ## Original Data source
 
-- House pricesand images socal - [Kaggle](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
+- House Prices and images Socal - [Kaggle](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
 - Google images searches of houses
 
 
