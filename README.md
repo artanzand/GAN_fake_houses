@@ -56,10 +56,10 @@ num_images
 
 Analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal) it was decided to implement webscrapping techniques to increase the number of images of houses that are similar and in this way the model can capture better patterns.
 
-Using the [Selenium] framework (https://selenium-python.readthedocs.io/) webscrapping was performed to download the images resulting from the following searches:
+Using the [Selenium](https://selenium-python.readthedocs.io/) framework, webscrapping was performed to download the images resulting from the following searches:
 "vancouver houses", "front yard houses", ''american houses", "canadian houses".
 
-After having a pool of images downloaded, the best possible house images were selected, the same was done for the images from [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices- and-images-socal).
+After having a pool of images downloaded, the best possible house images were selected, the same was done for the images from [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal).
 
 As part of the cleaning and quality control of the images, they were cropped and resized. The functions used to complete this job are found in [utils.py](https://github.com/artanzand/GAN/blob/main/src/utils.py)
 
