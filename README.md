@@ -71,7 +71,7 @@ num_images
 
 ## Webscraping
 
-Analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal) it was decided to implement webscrapping techniques to increase the number of images of houses that are similar and in this way the model can capture better patterns.
+Analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal) it was decided to implement webscrapping techniques to increase the number of images of houses that are similar thus the model can capture better patterns.
 
 Using the [Selenium](https://selenium-python.readthedocs.io/) framework, webscrapping was performed to download the images resulting from the following searches:
 "vancouver houses", "front yard houses", ''american houses", "canadian houses".
