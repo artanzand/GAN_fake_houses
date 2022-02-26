@@ -109,7 +109,7 @@ project environment needs to be updated too
 </p>
 
 <p align="center">
-  <img src="https://github.com/artanzand/GAN/blob/main/examples/good_prob.png" />
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/combined.JPG" />
 </p>
 
 
