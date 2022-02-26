@@ -22,3 +22,10 @@ We need 500 images?
 house pricesand images socal - [Kaggle](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
 Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
 
+
+## Lessons Learned
+- data size
+- Outdoor images
+- Weight decay
+- hyperparameters
+
