@@ -60,5 +60,5 @@ probability and loss results images
 - hyperparameters
 
 # References
-pytorch GAN reference
-Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
+[1] pytorch GAN reference  
+[2] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
