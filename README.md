@@ -1,7 +1,24 @@
 # Generative Adversarial Network
 GAN implementation for Realtor.com Images
 
-What GAN is and what it does. 
+
+## What is a Generative Adversarial Network (GAN)?
+
+GANs are an approach to generate new data that is identical from the real data existing in a dataset using deep learning techniques.
+
+GANs modeling is considered an unsupervised learning task which focus on learning patterns to produce new images that are realistic as possible. GANs invention is credited to Ian Goodfellow, they were  introduced in his famouse paper [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1acccf3-Paper.pdf).
+
+A GAN is made of two different models, a **generator** and a **discriminator**. The **generator** creates 'fake' images that look like the real training images. The **discriminator**  analyze an image and decide whether or not it is a real training image or a fake image created by the generator.
+
+The name **adversarial** comes from the performance of both models during the training phase.  The generator is trying to outsmart the discriminator by generating better 'fakes', while the discriminator is working on classify  better the real and fake images.
+
+The stability of this model  comes when the generator is generating perfect 'fakes' images that look like the training example, thus the generator is confused and always guess at 50% that image is real or fake. 
+
+This is an example of a structure of a GAN:
+
+![gans](https://user-images.githubusercontent.com/37048819/155857629-17fdc777-5056-4f97-864c-d7c9dad5fce6.png)
+source: [Manning](https://freecontent.manning.com/practical-applications-of-gans-part-1/)
+
 The scope of the project
 We want to create fake images for properties in a Real Estate company that do not have any images. 
 - image of the house outside - residential(single, semi-attached, condo, highrise)?
