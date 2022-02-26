@@ -5,10 +5,9 @@ GAN implementation for Realtor.com Images by Artan Zandian & Ramiro Mejia
 
 This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images.
 
-GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project [Pytorch](https://pytorch.org/) deep learning framework that we will use to train the models and the calculations will be performed using GPU. 
+GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU. 
 
-The  [Kaggle dataset - House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is used to train this model, in addtion webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
-
+The  [Kaggle dataset - House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is used to train this model, in addition webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
 
 In the following visualizations the real input images are presented and below an animation with the synthetic images produced by the GAN model:
 
@@ -45,6 +44,7 @@ source: [Manning](https://freecontent.manning.com/practical-applications-of-gans
 This is an example of GAN model to produce images of handwritten numbers
 
 ![dcgan](https://user-images.githubusercontent.com/37048819/155862019-3cd98231-aff4-4900-867d-db70886b1195.gif)
+
 source: [Tensorflow](https://www.tensorflow.org/tutorials/generative/dcgan)
 
 
@@ -109,7 +109,7 @@ As part of the cleaning and quality control of the images, they were cropped and
 
 ## Final Data for Download
 
-The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/house-thumbnail) for public usage.
+The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/house-thumbnail) for public usage contains 9777 images of houses.
 
 
 
@@ -131,7 +131,7 @@ project environment needs to be updated too
 
 ## Lessons Learned
 - GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in the public datasets
-- 
+- Training GANs is computational demanding so setting up a virtual machine is recommended to reproduce this project.
 - Outdoor images
 - Weight decay
 - hyperparameters
