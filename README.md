@@ -1,5 +1,22 @@
 # Generative Adversarial Network
-GAN implementation for Realtor.com Images
+GAN implementation for Realtor.com Images by Artan Zandian & Ramiro Mejia
+
+
+This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images.
+
+GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model.
+
+# Real images
+
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
+</p>
+
+# outputs through epochs
+
+<p align="center">
+  <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
+</p>
 
 
 ## What is a Generative Adversarial Network (GAN)?
@@ -20,13 +37,7 @@ This is an example of a structure of a GAN:
 source: [Manning](https://freecontent.manning.com/practical-applications-of-gans-part-1/)
 
 
-<p align="center">
-  <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
-</p>
 
-<p align="center">
-  <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
-</p>
 
 
 # Usage
@@ -109,7 +120,8 @@ project environment needs to be updated too
 
 
 ## Lessons Learned
-- data size
+- GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is many not appropiate images in the public houses image datasets
+- 
 - Outdoor images
 - Weight decay
 - hyperparameters
