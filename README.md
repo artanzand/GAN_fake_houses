@@ -19,12 +19,6 @@ This is an example of a structure of a GAN:
 ![gans](https://user-images.githubusercontent.com/37048819/155857629-17fdc777-5056-4f97-864c-d7c9dad5fce6.png)
 source: [Manning](https://freecontent.manning.com/practical-applications-of-gans-part-1/)
 
-The scope of the project
-We want to create fake images for properties in a Real Estate company that do not have any images. 
-- image of the house outside - residential(single, semi-attached, condo, highrise)?
-- interior (room, ...)
-- garden...
-We need over 10_000 images.
 
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
