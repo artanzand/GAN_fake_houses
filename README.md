@@ -1,4 +1,4 @@
-# Generative Adversarial Network - Fake Houses
+# Generative Adversarial Network
 GAN implementation for Realtor.com Images
 
 
