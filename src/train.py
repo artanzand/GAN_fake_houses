@@ -1,14 +1,8 @@
 import numpy as np
 import torch
 from torch import nn, optim
-from torchvision import datasets, transforms, utils, models
-import matplotlib.pyplot as plt
-from PIL import Image
+from torchvision import datasets, transforms
 from statistics import mean
-
-plt.style.use('ggplot')
-plt.rcParams.update({'font.size': 14, 'axes.labelweight': 'bold', 'axes.grid': False})
-
 
 
 
@@ -16,7 +10,6 @@ def main(data_dir="../input/resized", save_path="./model50.pt" , BATCH_SIZE=32, 
     """
     
     """
-    IMAGE_SIZE = (96, 128)
 
     # Use gpu if available
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -168,7 +161,7 @@ class Discriminator(nn.Module):
         return output
 
 
-def trainer(data_loader, generator, discriminator, criterion, optimizerG, optimizerD, BATCH_SIZE=32, LATENT_SIZE=96, epochs=10):
+def trainer(data_loader, generator, discriminator, criterion, optimizerG, optimizerD, LATENT_SIZE=96, epochs=10):
     """
     
     """

@@ -1,16 +1,17 @@
 import torch
 from torch import nn
 from torchvision import utils
-import matplotlib.pyplot as plt
-from PIL import Image
+from torchvision.utils import save_image
+import sys
+
 
 
 def generate(num_examples, save_path, model_path="../input/models/model50 GAN_normal0.01_batch32.pt", BATCH_SIZE=32, LATENT_SIZE=96):
     """
     
     """
-    if (num_examples < BATCH_SIZE):
-        stop("num_examples should be smaller than the batch size")
+    if (num_examples > BATCH_SIZE):
+        sys.exit("num_examples should be smaller than the batch size")
         
     # Create an instance of the generator
     generator = Generator(LATENT_SIZE)
@@ -37,14 +38,18 @@ def generate(num_examples, save_path, model_path="../input/models/model50 GAN_no
     fixed_noise = torch.randn(BATCH_SIZE, LATENT_SIZE, 1, 1).to(device)
     # Keeping track of the evolution of a fixed noise latent vector
     with torch.no_grad():
-        fake_images = generator(fixed_noise).detach().cpu()
-        img_list.append(utils.make_grid(fake_images, normalize=True, nrows=10))
+        generated_img = generator(fixed_noise).detach().cpu()
+        for i in range(BATCH_SIZE):
+            # Isolate each noise tensor
+            
+            img_list.append(generated_img[i,:,:,:])
 
     for i, image in enumerate(img_list[:num_examples]):
-        image.save(save_path + i) 
+        save_image(image, save_path + str(i) + ".png") 
+        print(f"Image {i} saved.")
 
 
-# Prediction Part
+
 class Generator(nn.Module):
     
     def __init__(self, LATENT_SIZE):
