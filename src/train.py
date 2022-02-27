@@ -13,6 +13,7 @@ Options:
 --latent_size=<latent_size>       size of the initial input vector to the generator [default: 96]
 --epochs=<num_epochs>             number of epochs [default: 50]
 """
+
 import torch
 from torch import nn, optim
 from torchvision import datasets, transforms

@@ -14,7 +14,6 @@ Options:
 --latent_size=<latent_size>       size of the initial input vector to the generator [default: 96]
 """
 
-from tkinter import E
 import torch
 from torch import nn
 from torchvision.utils import save_image
