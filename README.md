@@ -114,9 +114,19 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 
 
 # Dependencies
-python packages
-project environment needs to be updated too
 
+| Package      | Version |
+|--------------|---------|
+| matplotlib   | 3.5.1   |
+| numpy        | 1.21.5  |
+| pandas       | 1.4.1   |
+| pytorch      | 1.10.2  |
+| torchaudio   | 0.10.2  |
+| torchvision  | 0.11.3  |
+| urllib3      | 1.26.8  |
+| selenium     | 4.1.0   |
+| scikit-learn | 1.0.2   |
+| scipy        | 1.7.3   |         
 
 ## Results
 <p align="center">
