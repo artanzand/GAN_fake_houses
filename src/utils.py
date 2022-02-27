@@ -151,5 +151,30 @@ def image_resize(img, width, height):
     return img.resize((width, height))
 
 
+def rename_seq(path):
+    """
+    renaming images sequentially
+
+    Parameters
+    ----------
+     path : str
+        path to the file of imagese    
+
+    Returns
+    -------
+    images : 
+         returns renamed iamges
+    Examples
+    --------
+    >>> rename_seq("combined")
+    """
+    
+    images = os.listdir(path)
+    for i, im in enumerate(images):
+        src_path = os.path.join(path, im)
+        dst_path = os.path.join(path, str(i)+'.jpg')
+        os.rename(src_path,dst_path)
+
+
 if __name__ == '__main__':
     app.run_server(debug=True)
