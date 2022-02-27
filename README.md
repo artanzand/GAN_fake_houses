@@ -65,7 +65,6 @@ conda activate houseGAN
 from scr.utils import google_downloader
 
 google_downloader('houses vancouver', 10, 'chromedrive.exe')
-
 ```
 `google_downloader` uses [Selenium](https://selenium-python.readthedocs.io/) version 4.1.0
 
@@ -76,13 +75,18 @@ To download images from Google using this function the user should define the fo
 3. num_images: The number of images to be downloaded
 
 ## Training the model
-The function to train. This doesn't take any arguments.
+To train the GAN model and save the model weights run the below command line script in the `src/` directory. The two required arguments are the data (image) directory and the path to save the model weights. For list of other options run `python train.py --help`.
+
+```
+python train.py --data_dir=../images --save_path=../model/model.pt
+```
 
 ## Image Creation
-The function with predicted images
+Once model weights are created or saved in the project repo, run the below command in the `src/` directory to create fake house images! Please replace the correct values for the arguments below. For list of other options run `python generate.py --help`.  
+
 ```
+python generate.py --num_examples=10 --save_path=../examples/house --model_path=../model/model.pt
 ```
-num_images
 
 
 
