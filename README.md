@@ -1,16 +1,17 @@
-# Generative Adversarial Network
+# Generative Adversarial Network - Fake Houses
 
-GAN implementation for House-Thumbnail Images by Artan Zandian & Ramiro Mejia
+GAN implementation for House-Thumbnail Images by Artan Zandian & Ramiro Mejia  
+February 2022
 
 ## Objective
 
-This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images.
+This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images. This was a real world problem for Realtor.com who did a capstone project in partnership with UBC Master of Data Science program 2 years ago. Our target was to recreate the results and simulate the problem by creating our own house images [dataset](https://www.kaggle.com/ramiromep/house-thumbnail) in two weeks rather than the original capstone timeline of two months.
 
-GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU.
+GANs modelling is a difficult task since it is computationally expensive and requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU.
 
-The  [Kaggle dataset - House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is used to train this model, in addition webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
+The [House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is the base dataset used for this project, but due to low image count and poor quality of input data, additional webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
 
-In the following visualizations the real input images are presented and below an animation with the synthetic images produced by the GAN model:
+In the following visualizations the real input images are presented and below that an animation with the synthetic images produced by the GAN model:
 
 ## Real images
 
@@ -82,7 +83,7 @@ To train the GAN model and save the model weights run the below command line scr
 python train.py --data_dir=../data --save_path=../model/model.pt
 ```
 
-## Image Creation
+## Image Generation
 
 Once model weights are created or saved in the project repo, run the below command in the `src/` directory to create fake house images! Please replace the correct values for the arguments below. For list of other options run `python generate.py --help`.  
 
