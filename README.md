@@ -1,11 +1,12 @@
 # Generative Adversarial Network
+
 GAN implementation for House-Thumbnail Images by Artan Zandian & Ramiro Mejia
 
 ## Objective
 
 This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images.
 
-GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU. 
+GANs modelling is a difficult task since it is computational expensive, it requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU.
 
 The  [Kaggle dataset - House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is used to train this model, in addition webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
 
@@ -23,7 +24,6 @@ In the following visualizations the real input images are presented and below an
   <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
 </p>
 
-
 ## What is a Generative Adversarial Network (GAN)?
 
 GANs are an approach to generate new data that is identical from the real data existing in a dataset using deep learning techniques.
@@ -34,7 +34,7 @@ A GAN is made of two different models, a **generator** and a **discriminator**. 
 
 The name **adversarial** comes from the performance of both models during the training phase.  The generator is trying to outsmart the discriminator by generating better 'fakes', while the discriminator is working on classify  better the real and fake images.
 
-The stability of this model  comes when the generator is generating perfect 'fakes' images that look like the training example, thus the generator is confused and always guess at 50% that image is real or fake. 
+The stability of this model  comes when the generator is generating perfect 'fakes' images that look like the training example, thus the generator is confused and always guess at 50% that image is real or fake.
 
 This is an example of a structure of a GAN:
 
@@ -47,11 +47,10 @@ This is an example of GAN model to produce images of handwritten numbers
 
 source: [Tensorflow](https://www.tensorflow.org/tutorials/generative/dcgan)
 
-
-
-
 # Usage
+
 ## Cloning the Repo
+
 Clone this Github repository and install the dependencies by running the following commands at the command line/terminal from the root directory of the project:
 
 ```
@@ -66,30 +65,32 @@ from scr.utils import google_downloader
 
 google_downloader('houses vancouver', 10, 'chromedrive.exe')
 ```
+
 `google_downloader` uses [Selenium](https://selenium-python.readthedocs.io/) version 4.1.0
 
-To download images from Google using this function the user should define the following three arguments: 
+To download images from Google using this function the user should define the following three arguments:
 
-1. search : The title of your google search 
+1. search : The title of your google search
 2. path: Local path to the chromedriver.exe file required to use the Selenium library
 3. num_images: The number of images to be downloaded
 
 ## Training the model
+
 To train the GAN model and save the model weights run the below command line script in the `src/` directory. The two required arguments are the data (image) directory and the path to save the model weights. For list of other options run `python train.py --help`.
 
 ```
-python train.py --data_dir=../images --save_path=../model/model.pt
+python train.py --data_dir=../data --save_path=../model/model.pt
 ```
 
 ## Image Creation
+
 Once model weights are created or saved in the project repo, run the below command in the `src/` directory to create fake house images! Please replace the correct values for the arguments below. For list of other options run `python generate.py --help`.  
+
+Note: The most important thing to pay attention to is that the training and image creation need to be done on either GPU or CPU. For example, if you train on GPU you won't be able to generate images on CPU. The provided model weights in the repo are trained on cloud GPU.
 
 ```
 python generate.py --num_examples=10 --save_path=../examples/house --model_path=../model/model.pt
 ```
-
-
-
 
 # Data
 
@@ -97,7 +98,6 @@ python generate.py --num_examples=10 --save_path=../examples/house --model_path=
 
 - House Prices and images Socal - [Kaggle](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
 - Google images searches of houses
-
 
 ## Webscraping
 
@@ -110,12 +110,9 @@ After having a pool of images downloaded, the best possible house images were se
 
 As part of the cleaning and quality control of the images, they were cropped and resized. The functions used to complete this job are found in [utils.py](https://github.com/artanzand/GAN/blob/main/src/utils.py)
 
-
 ## Final Data for Download
 
 The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/house-thumbnail) for public usage contains 9777 images of houses.
-
-
 
 # Dependencies
 
@@ -130,9 +127,10 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 | urllib3      | 1.26.8  |
 | selenium     | 4.1.0   |
 | scikit-learn | 1.0.2   |
-| scipy        | 1.7.3   |         
+| scipy        | 1.7.3   |
 
 ## Results
+
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/prob_loss.JPG" />
 </p>
@@ -141,9 +139,8 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
   <img src="https://github.com/artanzand/GAN/blob/main/examples/combined.JPG" />
 </p>
 
-
-
 ## Lessons Learned
+
 - GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in the public datasets
 - Training GANs is computational demanding so setting up a virtual machine is recommended to reproduce this project.
 - Outdoor images
@@ -151,6 +148,7 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 - hyperparameters
 
 # References
+
 - [1] pytorch GAN Tutorial  - [tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
 - [2] pytorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
 - [3] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
