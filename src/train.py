@@ -14,7 +14,6 @@ Options:
 --epochs=<num epochs>             number of epochs
 """
 
-import numpy as np
 import torch
 from torch import nn, optim
 from torchvision import datasets, transforms
@@ -25,7 +24,7 @@ opt = docopt(__doc__)
 
 
 def main(
-    data_dir="../resized",
+    data_dir="../images",
     save_path="../model/model.pt",
     batch_size=32,
     latent_size=96,
