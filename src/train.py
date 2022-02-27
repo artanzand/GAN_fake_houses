@@ -4,16 +4,15 @@
 """
 Accepts the image data directory and saves the weights of the Generative Adversarial Network in a .pt file.
 
-Usage: python train.py --data_dir=<data directory> --save_path=<save path> --batch_size=<batch size> --latent_size=<latent size> --epochs=<num epochs>
+Usage: train.py [--data_dir=<data_directory> --save_path=<save_path> --batch_size=<batch_size> --latent_size=<latent_size> --epochs=<num_epochs>]
 
 Options:
---data_dir=<data directory>       path to the image directory      
---save_path=<save path>           path to where the model weights will be saved
---batch_size=<batch size>         size of batches for the training
---latent_size=<latent size>       size of the initial input vector to the generator
---epochs=<num epochs>             number of epochs
+--data_dir=<data_directory>       path to the image directory [default: ../data]  
+--save_path=<save_path>           path to where the model weights will be saved [default: ../model/model.pt]
+--batch_size=<batch_size>         size of batches for the training [default: 32]
+--latent_size=<latent_size>       size of the initial input vector to the generator [default: 96]
+--epochs=<num_epochs>             number of epochs [default: 50]
 """
-
 import torch
 from torch import nn, optim
 from torchvision import datasets, transforms
@@ -24,7 +23,7 @@ opt = docopt(__doc__)
 
 
 def main(
-    data_dir="../images",
+    data_dir="../data",
     save_path="../model/model.pt",
     batch_size=32,
     latent_size=96,
@@ -50,6 +49,12 @@ def main(
     -------
     Saved generator and discriminator weights on save_path
     """
+    try:
+        batch_size = int(batch_size)
+        latent_size = int(latent_size)
+        epochs = int(epochs)
+    except:
+        print("Did you give integer values for numbers and sizes?")
 
     # Use gpu if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -96,9 +101,6 @@ def main(
             optimizerD,
             epochs=epochs,
         )
-
-        if not os.path.exists(save_path):
-            os.makedirs(save_path)
 
         # Save model
         torch.save(

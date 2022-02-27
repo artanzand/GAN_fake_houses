@@ -4,19 +4,19 @@
 """
 Generates requested number of images based of number of examples.
 
-Usage: python generate.py --num_examples=<num examples> --save_path=<save path> --model_path=<model path> --batch_size=<batch size> --latent_size=<latent size>
+Usage: generate.py --num_examples=<num_examples> --save_path=<save_path> --model_path=<model_path> [--batch_size=<batch_size> --latent_size=<latent_size>]
 
 Options:
---num_examples=<num examples>     number of examples to generate     
---save_path=<save path>           path to where the generate images will be saved
---model_path=<model path>         path where the model weights is stored
---batch_size=<batch size>         size of batches for the training
---latent_size=<latent size>       size of the initial input vector to the generator
+--num_examples=<num_examples>     number of examples to generate     
+--save_path=<save_path>           path to where the generate images will be saved
+--model_path=<model_path>         path where the model weights is stored
+--batch_size=<batch_size>         size of batches for the training [default: 32]
+--latent_size=<latent_size>       size of the initial input vector to the generator [default: 96]
 """
 
+from tkinter import E
 import torch
 from torch import nn
-from torchvision import utils
 from torchvision.utils import save_image
 import sys
 from docopt import docopt
@@ -24,7 +24,7 @@ from docopt import docopt
 opt = docopt(__doc__)
 
 
-def generate(
+def main(
     num_examples,
     save_path,
     model_path="../model/model.pt",
@@ -47,6 +47,13 @@ def generate(
     latent_size: int, optional
         size of the initial input vector to the generator
     """
+    try:
+        num_examples = int(num_examples)
+        batch_size = int(batch_size)
+        latent_size = int(latent_size)
+    except:
+        print("Did you give integer values for numbers and sizes?")
+
     if num_examples > batch_size:
         sys.exit("num_examples should be smaller than the batch size")
 
@@ -135,7 +142,7 @@ class Generator(nn.Module):
 
 
 if __name__ == "__main__":
-    generate(
+    main(
         opt["--num_examples"],
         opt["--save_path"],
         opt["--model_path"],
