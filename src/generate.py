@@ -50,39 +50,43 @@ def generate(
     if num_examples > batch_size:
         sys.exit("num_examples should be smaller than the batch size")
 
-    # Create an instance of the generator
-    generator = Generator(latent_size)
+    try:
+        # Create an instance of the generator
+        generator = Generator(latent_size)
 
-    # Load model weights and losses
-    checkpoint = torch.load(model_path)
-    generator.load_state_dict(checkpoint["generator_state_dict"])
+        # Load model weights and losses
+        checkpoint = torch.load(model_path)
+        generator.load_state_dict(checkpoint["generator_state_dict"])
 
-    # Set generator to evaluation mode
-    generator.eval()
+        # Set generator to evaluation mode
+        generator.eval()
 
-    # sending the loaded models to cuda (the previous model has been trained on one)
-    # moving model to gpu needs to happen before constructing optimizer
-    if torch.cuda.is_available():
-        generator.cuda()
+        # sending the loaded models to cuda (the previous model has been trained on one)
+        # moving model to gpu needs to happen before constructing optimizer
+        if torch.cuda.is_available():
+            generator.cuda()
 
-    # Create an image list of batch size
-    img_list = []
+        # Create an image list of batch size
+        img_list = []
 
-    # Use gpu if available
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    print(f"Using device: {device.type}")
+        # Use gpu if available
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        print(f"Using device: {device.type}")
 
-    fixed_noise = torch.randn(batch_size, latent_size, 1, 1).to(device)
-    # Keeping track of the evolution of a fixed noise latent vector
-    with torch.no_grad():
-        generated_img = generator(fixed_noise).detach().cpu()
-        for i in range(batch_size):
-            # Isolate each noise tensor
-            img_list.append(generated_img[i, :, :, :])
+        fixed_noise = torch.randn(batch_size, latent_size, 1, 1).to(device)
+        # Keeping track of the evolution of a fixed noise latent vector
+        with torch.no_grad():
+            generated_img = generator(fixed_noise).detach().cpu()
+            for i in range(batch_size):
+                # Isolate each noise tensor
+                img_list.append(generated_img[i, :, :, :])
 
-    for i, image in enumerate(img_list[:num_examples]):
-        save_image(image, save_path + str(i) + ".png")
-        print(f"Image {i} saved.")
+        for i, image in enumerate(img_list[:num_examples]):
+            save_image(image, save_path + str(i) + ".png")
+            print(f"Image {i} saved.")
+
+    except Exception as ex:
+        print(ex)
 
 
 class Generator(nn.Module):
