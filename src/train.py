@@ -63,56 +63,60 @@ def main(
         ]
     )
 
-    # Create dataset and loader
-    dataset = datasets.ImageFolder(root=data_dir, transform=transformer)
-    data_loader = torch.utils.data.DataLoader(
-        dataset, batch_size=batch_size, shuffle=True, drop_last=False
-    )
+    try:
+        # Create dataset and loader
+        dataset = datasets.ImageFolder(root=data_dir, transform=transformer)
+        data_loader = torch.utils.data.DataLoader(
+            dataset, batch_size=batch_size, shuffle=True, drop_last=False
+        )
 
-    # Initiate generator and discriminator and weights
-    generator = Generator(latent_size)
-    discriminator = Discriminator()
+        # Initiate generator and discriminator and weights
+        generator = Generator(latent_size)
+        discriminator = Discriminator()
 
-    generator.apply(weights_init)
-    discriminator.apply(weights_init)
+        generator.apply(weights_init)
+        discriminator.apply(weights_init)
 
-    # Use GPU if available
-    generator.to(device)
-    discriminator.to(device)
+        # Use GPU if available
+        generator.to(device)
+        discriminator.to(device)
 
-    # Set criterion and optimizers
-    criterion = nn.BCELoss()
-    optimizerG = optim.Adam(generator.parameters(), lr=2e-4, betas=(0.5, 0.999))
-    optimizerD = optim.Adam(discriminator.parameters(), lr=2e-4, betas=(0.5, 0.999))
+        # Set criterion and optimizers
+        criterion = nn.BCELoss()
+        optimizerG = optim.Adam(generator.parameters(), lr=2e-4, betas=(0.5, 0.999))
+        optimizerD = optim.Adam(discriminator.parameters(), lr=2e-4, betas=(0.5, 0.999))
 
-    # Train Generator and Distcriminator
-    D_real_epoch, D_fake_epoch, loss_dis_epoch, loss_gen_epoch = trainer(
-        data_loader,
-        generator,
-        discriminator,
-        criterion,
-        optimizerG,
-        optimizerD,
-        epochs=epochs,
-    )
+        # Train Generator and Distcriminator
+        D_real_epoch, D_fake_epoch, loss_dis_epoch, loss_gen_epoch = trainer(
+            data_loader,
+            generator,
+            discriminator,
+            criterion,
+            optimizerG,
+            optimizerD,
+            epochs=epochs,
+        )
 
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
 
-    # Save model
-    torch.save(
-        {
-            "generator_state_dict": generator.state_dict(),
-            "discriminator_state_dict": discriminator.state_dict(),
-            "optimizerG_state_dict": optimizerG.state_dict(),
-            "optimizerD_state_dict": optimizerD.state_dict(),
-            "D_real_epoch": D_real_epoch,
-            "D_fake_epoch": D_fake_epoch,
-            "loss_dis_epoch": loss_dis_epoch,
-            "loss_gen_epoch": loss_gen_epoch,
-        },
-        save_path,
-    )
+        # Save model
+        torch.save(
+            {
+                "generator_state_dict": generator.state_dict(),
+                "discriminator_state_dict": discriminator.state_dict(),
+                "optimizerG_state_dict": optimizerG.state_dict(),
+                "optimizerD_state_dict": optimizerD.state_dict(),
+                "D_real_epoch": D_real_epoch,
+                "D_fake_epoch": D_fake_epoch,
+                "loss_dis_epoch": loss_dis_epoch,
+                "loss_gen_epoch": loss_gen_epoch,
+            },
+            save_path,
+        )
+
+    except Exception as ex:
+        print(ex)
 
 
 class Generator(nn.Module):
