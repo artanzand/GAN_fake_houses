@@ -61,23 +61,25 @@ conda activate houseGAN
 
 ## Webscraping
 
-```
-from scr.utils import google_downloader
+The below Python script can be used to download more images from Google.
 
-google_downloader('houses vancouver', 10, 'chromedrive.exe')
+```
+from src.utils import google_downloader
+
+google_downloader(search="houses vancouver", num_images=10, PATH="chromedrive.exe")
 ```
 
-`google_downloader` uses [Selenium](https://selenium-python.readthedocs.io/) version 4.1.0
+`google_downloader` uses [Selenium](https://selenium-python.readthedocs.io/) version 4.1.0.
 
 To download images from Google using this function the user should define the following three arguments:
 
-1. search : The title of your google search
+1. search: The title of your google search
 2. path: Local path to the chromedriver.exe file required to use the Selenium library
 3. num_images: The number of images to be downloaded
 
 ## Training the model
 
-To train the GAN model and save the model weights run the below command line script in the `src/` directory. The two required arguments are the data (image) directory and the path to save the model weights. For list of other options run `python train.py --help`.
+To train the GAN model and save the model weights run the below command line script in the `src/` directory. The two required arguments are the data (image) directory and the path to save the model weights. For a list of other options run `python train.py --help`.
 
 ```
 python train.py --data_dir=../data --save_path=../model/model.pt
@@ -85,9 +87,9 @@ python train.py --data_dir=../data --save_path=../model/model.pt
 
 ## Image Generation
 
-Once model weights are created or saved in the project repo, run the below command in the `src/` directory to create fake house images! Please replace the correct values for the arguments below. For list of other options run `python generate.py --help`.  
+Once model weights are created or saved in the `model/` directory, run the below command in the `src/` directory to create fake house images! Please replace the correct values for the arguments below. For list of other options run `python generate.py --help`.  
 
-Note: The most important thing to pay attention to is that the training and image creation need to be done on either GPU or CPU. For example, if you train on GPU you won't be able to generate images on CPU. The provided model weights in the repo are trained on cloud GPU.
+Note: The most important thing to know is that both training and image generation need to be only done on either GPU or CPU. For example, if you train on GPU you won't be able to generate images on CPU. The provided model weights in the repo are trained on cloud GPU.
 
 ```
 python generate.py --num_examples=10 --save_path=../examples/house --model_path=../model/model.pt
@@ -97,23 +99,23 @@ python generate.py --num_examples=10 --save_path=../examples/house --model_path=
 
 ## Original Data source
 
-- House Prices and images Socal - [Kaggle](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
-- Google images searches of houses
+- [House Prices and images Socal](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
+- Google image searches of houses in North America
 
 ## Webscraping
 
-Analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal) it was decided to implement webscrapping techniques to increase the number of images of houses that are similar thus the model can capture better patterns.
+After analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal), it was decided to implement webscrapping to increase the number of consistent house images (house facades) so that the model could recognize more reliable patterns.
 
 Using the [Selenium](https://selenium-python.readthedocs.io/) framework, webscrapping was performed to download the images resulting from the following searches:
 "vancouver houses", "front yard houses", ''american houses", "canadian houses".
 
 After having a pool of images downloaded, the best possible house images were selected, the same was done for the images from [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal).
 
-As part of the cleaning and quality control of the images, they were cropped and resized. The functions used to complete this job are found in [utils.py](https://github.com/artanzand/GAN/blob/main/src/utils.py)
+As part of the cleaning and quality control of the images, they were cropped and resized. The functions used to complete this job are found in [utils.py](https://github.com/artanzand/GAN/blob/main/src/utils.py).
 
 ## Final Data for Download
 
-The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/house-thumbnail) for public usage contains 9777 images of houses.
+The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/house-thumbnail) for public usage and contains 9777 thumbnail images of houses.
 
 # Dependencies
 
@@ -132,6 +134,7 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 
 ## Results
 
+A perfect model would create probability scores for the real image and the fake image which hover around 0.5. This would mean that the generator model has got to a state that creates images which discriminator is not able to distinguish from real! On the right, we wee the loss for both generator (loss_gen) and discriminator (loss_gen). In our experience, these losses oscilate a lot and at some points even cross eachother which seems to be fine as long as they are under control. For some reason, we were not able to stabilize the models to continue improving images after 100 epochs.
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/prob_loss.JPG" />
 </p>
@@ -142,11 +145,11 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 
 ## Lessons Learned
 
-- GAN modeling is a difficult task. Finding a good architecture is not enough, good quality images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in the public datasets
-- Training GANs is computational demanding so setting up a virtual machine is recommended to reproduce this project.
-- Outdoor images
-- Weight decay
-- hyperparameters
+- GAN modeling is a difficult task and finding a good architecture is not enough. Good quality representative images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in public datasets.
+- Training GANs is computationally demanding so setting up a virtual machine is recommended to reproduce this project. We used instance of Google Cloud Platform and AWS for this project.
+- Outdoor images - It is very important for the images to be of same type, e.g. this model won't work if it is given images of house facades, perspective images, interiors and siteplans as input data.
+- Weight decay - Using weight decay is a double-edge sword. Although it helps with model stabilization, the learning will stop as the model will get stuck in local optima.
+- hyperparameters play the most important role after a good dataset. For recommendations on good starting points for hyperparameter values refer to this [repository](https://github.com/soumith/ganhacks).
 
 # References
 
