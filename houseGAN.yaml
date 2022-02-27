@@ -1,0 +1,23 @@
+name: houseGAN
+channels:
+  - defaults
+  - pytorch
+  - plotly
+  - bioconda
+  - conda-forge
+dependencies:
+  - black
+  - pip
+  - python
+  - torchvision
+  - scikit-learn
+  - torchaudio
+  - ipykernel
+  - nbformat
+  - autograd
+  - ipywidgets
+  - jupyter-dash
+  - pandas
+  - plotly
+  - matplotlib
+  - flake8
