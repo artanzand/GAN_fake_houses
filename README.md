@@ -13,13 +13,13 @@ The [House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-
 
 In the following visualizations the real input images are presented and below that an animation with the synthetic images produced by the GAN model:
 
-## Real images
+## Real Images
 
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/train_sample.JPG" />
 </p>
 
-## Outputs through epochs
+## Outputs Through Epochs
 
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/evolution.gif" />
