@@ -5,11 +5,11 @@ February 2022
 
 ## Objective
 
-This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images. This was a real world problem for Realtor.com who did a capstone project in partnership with UBC Master of Data Science program 2 years ago. Our target was to recreate the results and simulate the problem by creating our own house images [dataset](https://www.kaggle.com/ramiromep/house-thumbnail) in two weeks rather than the original capstone timeline of two months.
+This project aims to implement a Generative Adversarial Networks (GANs) model to create synthetic thumbnail images of the exterior of houses that mimic real training images. This was a real-world problem for Realtor.com who did a capstone project in partnership with UBC Master of Data Science program 2 years ago. Our target was to recreate the results and simulate the problem by creating our own house images [dataset](https://www.kaggle.com/ramiromep/house-thumbnail) in two weeks rather than the original capstone timeline of two months.
 
-GANs modelling is a difficult task since it is computationally expensive and requires GPU-accelerated frameworks to be trained. Also GANs require tipically thousands of training images to produce a high-quality model. In this project, [Pytorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU.
+GANs modelling is a difficult task since it is computationally expensive and requires GPU-accelerated frameworks to be trained. Also, GANs require typically thousands of training images to produce a high-quality model. In this project, [PyTorch](https://pytorch.org/) deep learning framework we will be used to train the models and the calculations will be performed using GPU.
 
-The [House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is the base dataset used for this project, but due to low image count and poor quality of input data, additional webscrapping of house images was performed to increase the number of images in the dataset and improve their quality.
+The [House prices SoCal](https://www.kaggle.com/ted8080/house-prices-and-images-socal) is the base dataset used for this project, but due to low image count and poor quality of input data, additional web scraping of house images was performed to increase the number of images in the dataset and improve their quality.
 
 In the following visualizations the real input images are presented and below that an animation with the synthetic images produced by the GAN model:
 
@@ -29,7 +29,7 @@ In the following visualizations the real input images are presented and below th
 
 GANs are an approach to generate new data that is identical to the real data existing in a dataset using deep learning techniques.
 
-GANs modeling is considered an unsupervised learning task which focus on learning patterns to produce new images that are as realistic as possible. GANs invention is credited to Ian Goodfellow, and was introduced in his famouse paper [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1acccf3-Paper.pdf).
+GANs modeling is considered an unsupervised learning task which focus on learning patterns to produce new images that are as realistic as possible. GANs invention is credited to Ian Goodfellow, and was introduced in his famous paper [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1acccf3-Paper.pdf).
 
 A GAN is made of two different models, a **generator** and a **discriminator**. The **generator** creates 'fake' images that look like the real training images. The **discriminator**  analyzes an image and decides whether or not it is a real training image or a fake image created by the generator.
 
@@ -59,7 +59,7 @@ conda env create --file houseGAN.yaml
 conda activate houseGAN
 ```
 
-## Webscraping
+## Web scraping
 
 The below Python script can be used to download more images from Google.
 
@@ -102,12 +102,12 @@ python generate.py --num_examples=10 --save_path=../examples/house --model_path=
 - [House Prices and images Socal](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
 - Google image searches of houses in North America
 
-## Webscraping
+## Web scraping
 
-After analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal), it was decided to implement webscrapping to increase the number of consistent house images (house facades) so that the model could recognize more reliable patterns.
+After analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal), it was decided to implement web scraping to increase the number of consistent house images (house facades) so that the model could recognize more reliable patterns.
 
-Using the [Selenium](https://selenium-python.readthedocs.io/) framework, webscrapping was performed to download the images resulting from the following searches:
-"vancouver houses", "front yard houses", ''american houses", "canadian houses".
+Using the [Selenium](https://selenium-python.readthedocs.io/) framework, web scraping was performed to download the images resulting from the following searches:
+"Vancouver houses", "front yard houses", ''American houses", "Canadian houses".
 
 After having a pool of images downloaded, the best possible house images were selected, the same was done for the images from [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal).
 
@@ -134,7 +134,7 @@ The final [dataset was uploaded to Kaggle](https://www.kaggle.com/ramiromep/hous
 
 ## Results
 
-A perfect model would create probability scores for the real image and the fake image which hover around 0.5. This would mean that the generator model has got to a state that creates images which discriminator is not able to distinguish from real! On the right, we wee the loss for both generator (loss_gen) and discriminator (loss_gen). In our experience, these losses oscilate a lot and at some points even cross eachother which seems to be fine as long as they are under control. For some reason, we were not able to stabilize the models to continue improving images after 100 epochs.
+A perfect model would create probability scores for the real image and the fake image which hover around 0.5. This would mean that the generator model has got to a state that creates images which discriminator is not able to distinguish from real! On the right, we wee the loss for both generator (loss_gen) and discriminator (loss_gen). In our experience, these losses oscillate a lot and at some points even cross each other which seems to be fine as long as they are under control. For some reason, we were not able to stabilize the models to continue improving images after 100 epochs.
 <p align="center">
   <img src="https://github.com/artanzand/GAN/blob/main/examples/prob_loss.JPG" />
 </p>
@@ -145,16 +145,16 @@ A perfect model would create probability scores for the real image and the fake 
 
 ## Lessons Learned
 
-- GAN modeling is a difficult task and finding a good architecture is not enough. Good quality representative images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there is not many appropiate images in public datasets.
+- GAN modeling is a difficult task and finding a good architecture is not enough. Good quality representative images and a large training dataset are needed to have a successful model. The data collection is in particular difficult since there are not many appropriate images in public datasets.
 - Training GANs is computationally demanding so setting up a virtual machine is recommended to reproduce this project. We used instance of Google Cloud Platform and AWS for this project.
-- Outdoor images - It is very important for the images to be of same type, e.g. this model won't work if it is given images of house facades, perspective images, interiors and siteplans as input data.
+- Outdoor images - It is very important for the images to be of same type, e.g., this model won't work if it is given images of house facades, perspective images, interiors, and site plans as input data.
 - Weight decay - Using weight decay is a double-edge sword. Although it helps with model stabilization, the learning will stop as the model will get stuck in local optima.
 - hyperparameters play the most important role after a good dataset. For recommendations on good starting points for hyperparameter values refer to this [repository](https://github.com/soumith/ganhacks).
 
 # References
 
-- [1] pytorch GAN Tutorial  - [tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
-- [2] pytorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
+- [1] PyTorch GAN Tutorial - [tutorial](https://pytorch.org/tutorials/beginner/dcgan_faces_tutorial.html)
+- [2] PyTorch reference NN - [website](https://pytorch.org/docs/stable/nn.html)
 - [3] Sampling Generative Networks - [paper](https://arxiv.org/abs/1609.04468)
 - [4] Jason Brownlee article about GANs - [article](https://machinelearningmastery.com/what-are-generative-adversarial-networks-gans/)
 - [5] Andres Pitta article - [article](https://ubc-mds.github.io/2020-07-10-realistic-neighbourhoods/)
