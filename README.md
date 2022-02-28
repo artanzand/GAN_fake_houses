@@ -50,7 +50,7 @@ source: [Tensorflow](https://www.tensorflow.org/tutorials/generative/dcgan)
 
 # Usage
 
-## Cloning the Repo
+## Cloning the Repository
 
 Clone this Github repository and install the dependencies by running the following commands at the command line/terminal from the root directory of the project:
 
@@ -59,7 +59,7 @@ conda env create --file houseGAN.yaml
 conda activate houseGAN
 ```
 
-## Web scraping
+## Web Scraping
 
 The below Python script can be used to download more images from Google.
 
@@ -78,7 +78,7 @@ To download images from Google using this function the user should define the fo
 2. path: Local path to the chromedriver.exe file required to use the Selenium library. The user can dowload the driver in [ChromeDriver](https://chromedriver.chromium.org/downloads) website and place it in a local folder.
 3. num_images: The number of images to be downloaded
 
-## Training the model
+## Training the Model
 
 To train the GAN model and save the model weights run the below command line script in the `src/` directory. The two required arguments are the data (image) directory and the path to save the model weights. For a list of other options run `python train.py --help`.
 
@@ -103,7 +103,7 @@ python generate.py --num_examples=10 --save_path=../examples/house --model_path=
 - [House Prices and images Socal](https://www.kaggle.com/ted8080/house-prices-and-images-socal)
 - Google image searches of houses in North America
 
-## Web scraping
+## Web Scraping
 
 After analyzing the quality of the images of the [Kaggle dataset](https://www.kaggle.com/ted8080/house-prices-and-images-socal), it was decided to implement web scraping to increase the number of consistent house images (house facades) so that the model could recognize more reliable patterns.
 
