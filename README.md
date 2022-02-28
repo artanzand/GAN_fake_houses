@@ -73,8 +73,9 @@ google_downloader(search="houses vancouver", num_images=10, PATH="chromedrive.ex
 
 To download images from Google using this function the user should define the following three arguments:
 
-1. search: The title of your google search
-2. path: Local path to the chromedriver.exe file required to use the Selenium library
+
+1. search : The title of your google search
+2. path: Local path to the chromedriver.exe file required to use the Selenium library. The user can dowload the driver in [ChromeDriver](https://chromedriver.chromium.org/downloads) website and place it in a local folder.
 3. num_images: The number of images to be downloaded
 
 ## Training the model
