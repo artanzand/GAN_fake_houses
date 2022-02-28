@@ -29,7 +29,7 @@ In the following visualizations the real input images are presented and below th
 
 GANs are an approach to generate new data that is identical to the real data existing in a dataset using deep learning techniques.
 
-GANs modeling is considered an unsupervised learning task which focus on learning patterns to produce new images that are as realistic as possible. GANs invention is credited to Ian Goodfellow, and was introduced in his famous paper [Generative Adversarial Nets](https://proceedings.neurips.cc/paper/2014/file/5ca3e9b122f61f8f06494c97b1acccf3-Paper.pdf).
+GANs modeling is considered an unsupervised learning task which focus on learning patterns to produce new images that are as realistic as possible. GANs invention is credited to Ian Goodfellow, and was introduced in his famous paper [Generative Adversarial Nets](https://arxiv.org/abs/1406.2661).
 
 A GAN is made of two different models, a **generator** and a **discriminator**. The **generator** creates 'fake' images that look like the real training images. The **discriminator**  analyzes an image and decides whether or not it is a real training image or a fake image created by the generator.
 
